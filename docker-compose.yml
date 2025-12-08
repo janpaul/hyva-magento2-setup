@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  phpfpm:
+    image: markoshust/magento-php:8.2-fpm
+    container_name: magento-php
+    working_dir: /var/www/html
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+
+  nginx:
+    image: markoshust/magento-nginx:1.18
+    container_name: magento-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - phpfpm
+
+  db:
+    image: mysql:8.0
+    container_name: magento-db
+    command: --default-authentication-plugin=mysql_native_password --log-bin-trust-function-creators=1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: magento
+      MYSQL_USER: magento
+      MYSQL_PASSWORD: magento
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  opensearch:
+    image: opensearchproject/opensearch:2.11.0
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    volumes:
+      - opensearchdata:/usr/share/opensearch/data
+
+volumes:
+  dbdata:
+  opensearchdata:
