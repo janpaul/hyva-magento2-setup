@@ -1,4 +1,4 @@
-# Magento2 + Hyvǎ Clean Install
+# Magento2 + Hyvä Clean Install
 
 ## Pre-setup
 
