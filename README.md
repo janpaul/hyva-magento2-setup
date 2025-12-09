@@ -1,5 +1,13 @@
 # Magento2 + Hyvǎ Clean Install
 
+## Pre-setup
+
+Make sure you have a `src` directory in the current directory. This can (and should) be empty.
+
+```shell
+mkdir src
+```
+
 ## Install docker
 
 Do it here at [docker](https://docs.docker.com/get-docker/).
