@@ -2,6 +2,11 @@
 
 ## Pre-setup
 
+### Install docker
+
+Do it here at [docker](https://docs.docker.com/get-docker/).
+
+### Create the 'src' directory
 Make sure you have a `src` directory in the current directory. This can (and should) be empty.
 
 ```shell
@@ -14,7 +19,6 @@ mkdir src
 
 Create an Adobe Commerce account [here](https://account.magento.com/register).
 
-
 ### Get your authentication keys
 
 - Go to [Magento Marketplace](https://marketplace.magento.com/customer/accessKeys/).
@@ -23,10 +27,6 @@ Create an Adobe Commerce account [here](https://account.magento.com/register).
 - Go to the "Access Keys" tab
 - Create a new set of keys for Magento Open Source
 - Copy the Public Key and Private Key, you will need them later!
-
-## Install docker
-
-Do it here at [docker](https://docs.docker.com/get-docker/).
 
 ## Start the containers
 
