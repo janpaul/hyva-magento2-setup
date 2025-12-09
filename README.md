@@ -57,6 +57,8 @@ composer create-project \
 You will be prompted to enter your username and password. Use the Public Key as username and the Private Key as 
 password.
 
+Sadly, you may need to run the command multiple times until all packages are downloaded.
+
 ### Install Magento2
 
 Install Magento2 with the following command:
